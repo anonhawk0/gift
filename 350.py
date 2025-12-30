@@ -7,7 +7,7 @@ SESSION = "market_session"
 
 SOURCE_CHANNEL = "@ResellGifts1"  # channel you're forwarding from
 TARGET_CHANNEL = "@nft350"
-STAR_LIMIT = 350
+STAR_LIMIT = 351
 
 client = TelegramClient(SESSION, API_ID, API_HASH)
 
@@ -40,10 +40,10 @@ async def new_listing(event):
     )
 
     await client.send_message(TARGET_CHANNEL, post_text, parse_mode="html")
+    print(f"Found a gift, Price : {price}")
 
-    if event.message.media:
-        await client.send_file(TARGET_CHANNEL, event.message.media)
 
-print("Monitoring only NEW listings under 400 ⭐ ...")
+
+print("Monitoring only NEW listings under 350 ⭐ ...")
 client.start()
 client.run_until_disconnected()
